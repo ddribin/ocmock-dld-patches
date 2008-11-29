@@ -1,0 +1,592 @@
+diff --git a/Source/OCMock.xcodeproj/project.pbxproj b/Source/OCMock.xcodeproj/project.pbxproj
+--- a/Source/OCMock.xcodeproj/project.pbxproj
++++ b/Source/OCMock.xcodeproj/project.pbxproj
+@@ -31,6 +31,9 @@
+ 		03DE219006DB91CF00E5A2A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DE218F06DB91CF00E5A2A8 /* Foundation.framework */; };
+ 		03DE21B306DB95C500E5A2A8 /* OCMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DE21B206DB95C500E5A2A8 /* OCMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+ 		03DE221706DB97DA00E5A2A8 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03DE221606DB97DA00E5A2A8 /* License.txt */; };
++		559AD40D0EDA0BD4001CD59F /* OCMockKeyValueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 559AD40B0EDA0BD4001CD59F /* OCMockKeyValueObserver.h */; };
++		559AD40E0EDA0BD4001CD59F /* OCMockKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AD40C0EDA0BD4001CD59F /* OCMockKeyValueObserver.m */; };
++		559AD4110EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AD4100EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m */; };
+ 		55A036BC0ED89F270089F431 /* OCMockNotificationObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A036BA0ED89F270089F431 /* OCMockNotificationObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+ 		55A036BD0ED89F270089F431 /* OCMockNotificationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A036BB0ED89F270089F431 /* OCMockNotificationObserver.m */; };
+ 		55A036C20ED8A0470089F431 /* OCMockNotificationObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A036C10ED8A0470089F431 /* OCMockNotificationObserverTests.m */; };
+@@ -83,6 +86,10 @@
+ 		03DE221606DB97DA00E5A2A8 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+ 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+ 		32DBCF5E0370ADEE00C91783 /* OCMock_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock_Prefix.pch; sourceTree = "<group>"; };
++		559AD40B0EDA0BD4001CD59F /* OCMockKeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockKeyValueObserver.h; sourceTree = "<group>"; };
++		559AD40C0EDA0BD4001CD59F /* OCMockKeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockKeyValueObserver.m; sourceTree = "<group>"; };
++		559AD40F0EDA0BE0001CD59F /* OCMockKeyValueObserverTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockKeyValueObserverTests.h; sourceTree = "<group>"; };
++		559AD4100EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockKeyValueObserverTests.m; sourceTree = "<group>"; };
+ 		55A036BA0ED89F270089F431 /* OCMockNotificationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockNotificationObserver.h; sourceTree = "<group>"; };
+ 		55A036BB0ED89F270089F431 /* OCMockNotificationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockNotificationObserver.m; sourceTree = "<group>"; };
+ 		55A036C00ED8A0470089F431 /* OCMockNotificationObserverTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockNotificationObserverTests.h; sourceTree = "<group>"; };
+@@ -130,6 +137,8 @@
+ 				03DE1F5F06DB914100E5A2A8 /* OCMockObjectTests.m */,
+ 				55A036C00ED8A0470089F431 /* OCMockNotificationObserverTests.h */,
+ 				55A036C10ED8A0470089F431 /* OCMockNotificationObserverTests.m */,
++				559AD40F0EDA0BE0001CD59F /* OCMockKeyValueObserverTests.h */,
++				559AD4100EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m */,
+ 				032798010E09F8B7006CA665 /* OCMockObjectHamcrestTests.h */,
+ 				032798020E09F8B7006CA665 /* OCMockObjectHamcrestTests.mm */,
+ 				03DE1F6006DB914100E5A2A8 /* OCMockRecorderTests.h */,
+@@ -192,6 +201,8 @@
+ 				03DE1F5506DB911300E5A2A8 /* OCMockObject.m */,
+ 				55A036BA0ED89F270089F431 /* OCMockNotificationObserver.h */,
+ 				55A036BB0ED89F270089F431 /* OCMockNotificationObserver.m */,
++				559AD40B0EDA0BD4001CD59F /* OCMockKeyValueObserver.h */,
++				559AD40C0EDA0BD4001CD59F /* OCMockKeyValueObserver.m */,
+ 				0338A99607BE7C100066DE8A /* OCClassMockObject.h */,
+ 				0338A99707BE7C100066DE8A /* OCClassMockObject.m */,
+ 				0338A9EE07BE83B50066DE8A /* OCProtocolMockObject.h */,
+@@ -249,6 +260,7 @@
+ 				03A2D0CB09F01D13008A1AFD /* NSInvocation+OCMAdditions.h in Headers */,
+ 				0343133E0CCA771800A2E080 /* OCMConstraint.h in Headers */,
+ 				55A036BC0ED89F270089F431 /* OCMockNotificationObserver.h in Headers */,
++				559AD40D0EDA0BD4001CD59F /* OCMockKeyValueObserver.h in Headers */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -383,6 +395,7 @@
+ 				034313EA0CCA7BC700A2E080 /* OCMConstraintTests.m in Sources */,
+ 				032798030E09F8B7006CA665 /* OCMockObjectHamcrestTests.mm in Sources */,
+ 				55A036C20ED8A0470089F431 /* OCMockNotificationObserverTests.m in Sources */,
++				559AD4110EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -397,6 +410,7 @@
+ 				03A2D0CC09F01D13008A1AFD /* NSInvocation+OCMAdditions.m in Sources */,
+ 				0343133F0CCA771800A2E080 /* OCMConstraint.m in Sources */,
+ 				55A036BD0ED89F270089F431 /* OCMockNotificationObserver.m in Sources */,
++				559AD40E0EDA0BD4001CD59F /* OCMockKeyValueObserver.m in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+diff --git a/Source/OCMockKeyValueObserver.h b/Source/OCMockKeyValueObserver.h
+new file mode 100644
+--- /dev/null
++++ b/Source/OCMockKeyValueObserver.h
+@@ -0,0 +1,25 @@
++//
++
++#import "OCClassMockObject.h"
++
++@interface OCMockKeyValueObserver : OCClassMockObject
++{
++    NSMutableArray * helpers;
++    NSMutableArray * keyPaths;
++}
++
++- (void)registerKeyPath:(NSString *)keyPath object:(id)object;
++
++- (void)registerKeyPath:(NSString *)keyPath object:(id)object options:(NSKeyValueObservingOptions)options;
++
++- (void)unregisterAll;
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object;
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object newValue:(id)value;
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object oldValue:(id)value;
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object indexes:(id)indexes;
++
++@end
+diff --git a/Source/OCMockKeyValueObserver.m b/Source/OCMockKeyValueObserver.m
+new file mode 100644
+--- /dev/null
++++ b/Source/OCMockKeyValueObserver.m
+@@ -0,0 +1,230 @@
++//
++
++#import "OCMockKeyValueObserver.h"
++#import <OCMock/OCMockRecorder.h>
++#import <OCMock/OCMConstraint.h>
++
++@interface OCMockKeyValueObserverToMock : NSObject
++
++- (void)recordKeyPath:(NSString *)keyPath
++               object:(id)object
++           changeKind:(id)changeKind
++            changeOld:(id)changeOld
++            changeNew:(id)changeNew
++        changeIndexes:(id)changeIndexes;
++
++@end
++
++@implementation OCMockKeyValueObserverToMock
++
++- (void)recordKeyPath:(NSString *)keyPath
++               object:(id)object
++           changeKind:(id)changeKind
++            changeOld:(id)changeOld
++            changeNew:(id)changeNew
++        changeIndexes:(id)changeIndexes;
++{
++}
++
++@end
++
++#pragma mark -
++
++@interface OCMockKeyValueObserverHelper : NSObject
++{
++    // Weak reference
++    OCMockKeyValueObserverToMock * _mock;
++    NSString * _keyPath;
++    id _object;
++    BOOL _registered;
++}
++
++- (id)initWithMock:(OCMockKeyValueObserverToMock *)mock
++           keyPath:(NSString *)keyPath
++            object:(id)object
++           options:(NSKeyValueObservingOptions)options;
++
++- (void)unregister;
++
++@end
++
++static NSString * kContext = @"OCMockKeyValueObserverHelper context";
++
++@implementation OCMockKeyValueObserverHelper
++
++- (id)initWithMock:(OCMockKeyValueObserverToMock *)mock
++           keyPath:(NSString *)keyPath
++            object:(id)object
++           options:(NSKeyValueObservingOptions)options;
++{
++    self = [super init];
++    if (self == nil)
++        return nil;
++    
++    _mock = mock;
++    _keyPath = [keyPath copy];
++    _object = [object retain];
++    
++    [_object addObserver:self
++              forKeyPath:_keyPath
++                 options:options
++                 context:&kContext];
++    _registered = YES;
++
++    return self;
++}
++
++- (void)dealloc
++{
++    [self unregister];
++    [_object release];
++    
++    [super dealloc];
++}
++
++- (void)finalize
++{
++    [self unregister];
++}
++
++- (void)unregister;
++{
++    if (_registered)
++    {
++        [_object removeObserver:self forKeyPath:_keyPath];
++        _registered = NO;
++    }
++}
++
++- (void)observeValueForKeyPath:(NSString *)keyPath
++                      ofObject:(id)object
++                        change:(NSDictionary *)change
++                       context:(void *)context
++{
++    if (context == &kContext)
++    {
++        id changeKind  = [change objectForKey:NSKeyValueChangeKindKey];
++        id changeOld = [change objectForKey:NSKeyValueChangeOldKey];
++        id changeNew = [change objectForKey:NSKeyValueChangeNewKey];
++        id changeIndexes = [change objectForKey:NSKeyValueChangeIndexesKey];
++        
++        [_mock recordKeyPath:keyPath object:object
++                  changeKind:changeKind
++                   changeOld:changeOld
++                   changeNew:changeNew
++               changeIndexes:changeIndexes];
++    }
++}
++
++@end
++
++#pragma mark -
++
++@interface OCMockKeyValueObserver (Mock)
++
++- (void)recordKeyPath:(NSString *)keyPath
++               object:(id)object
++           changeKind:(NSNumber *)changeKind
++            changeOld:(id)changeOld
++            changeNew:(id)changeNew
++        changeIndexes:(id)changeIndexes;
++
++@end
++
++@implementation OCMockKeyValueObserver
++
++- (id)init
++{
++    self = [super initWithClass:[OCMockKeyValueObserverToMock class]];
++    if (self == nil)
++        return nil;
++    
++    helpers = [[NSMutableArray alloc] init];
++    keyPaths = [[NSMutableArray alloc] init];
++        
++    return self;
++}
++
++- (void)dealloc
++{
++    [self unregisterAll];
++    [super dealloc];
++}
++
++- (void)finalize
++{
++    [self unregisterAll];
++}
++
++- (void)unregisterAll;
++{
++    [helpers makeObjectsPerformSelector:@selector(unregister)];
++    [helpers removeAllObjects];
++}
++
++- (void)registerKeyPath:(NSString *)keyPath object:(id)object;
++{
++    [self registerKeyPath:keyPath object:object options:0];
++}
++
++- (void)registerKeyPath:(NSString *)keyPath object:(id)object options:(NSKeyValueObservingOptions)options;
++{
++    OCMockKeyValueObserverHelper * helper = [[OCMockKeyValueObserverHelper alloc] initWithMock:(id)self
++                                                                                       keyPath:keyPath
++                                                                                        object:object
++                                                                                       options:options];
++    [helper autorelease];
++    
++    [helpers addObject:helper];
++}
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object;
++{
++    [[self expect] recordKeyPath:keyPath object:object
++                      changeKind:OCMOCK_ANY
++                       changeOld:OCMOCK_ANY
++                       changeNew:OCMOCK_ANY
++                   changeIndexes:OCMOCK_ANY];
++
++}
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object newValue:(id)value
++{
++    [[self expect] recordKeyPath:keyPath
++                          object:object
++                      changeKind:OCMOCK_ANY
++                       changeOld:OCMOCK_ANY
++                       changeNew:value
++                   changeIndexes:OCMOCK_ANY];
++}
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object oldValue:(id)value
++{
++    [[self expect] recordKeyPath:keyPath
++                          object:object
++                      changeKind:OCMOCK_ANY
++                       changeOld:value
++                       changeNew:OCMOCK_ANY
++                   changeIndexes:OCMOCK_ANY];
++}
++
++- (void)expectKeyPath:(NSString *)keyPath object:(id)object indexes:(id)indexes
++{
++    [[self expect] recordKeyPath:keyPath
++                          object:object
++                      changeKind:OCMOCK_ANY
++                       changeOld:OCMOCK_ANY
++                       changeNew:OCMOCK_ANY
++                   changeIndexes:indexes];
++}
++
++//---------------------------------------------------------------------------------------
++//  proxy api
++//---------------------------------------------------------------------------------------
++
++- (BOOL)orderMatters
++{
++    return YES;
++}
++
++@end
+diff --git a/Source/OCMockKeyValueObserverTests.h b/Source/OCMockKeyValueObserverTests.h
+new file mode 100644
+--- /dev/null
++++ b/Source/OCMockKeyValueObserverTests.h
+@@ -0,0 +1,10 @@
++//
++
++#import <SenTestingKit/SenTestingKit.h>
++
++
++@interface OCMockKeyValueObserverTests : SenTestCase {
++
++}
++
++@end
+diff --git a/Source/OCMockKeyValueObserverTests.m b/Source/OCMockKeyValueObserverTests.m
+new file mode 100644
+--- /dev/null
++++ b/Source/OCMockKeyValueObserverTests.m
+@@ -0,0 +1,241 @@
++//
++
++#import "OCMockKeyValueObserverTests.h"
++#import "OCMockKeyValueObserver.h"
++
++
++@interface TestOCMockPerson : NSObject
++{
++    NSString * _name;
++    int _age;
++    NSMutableArray * _children;
++}
++
++- (void)setName:(NSString *)name;
++- (NSString *)name;
++
++- (void)setAge:(int)age;
++- (int)age;
++
++- (void)addChild:(NSString *)child;
++
++@end
++
++@implementation TestOCMockPerson
++
++- (id)init
++{
++    self = [super init];
++    if (self == nil)
++        return nil;
++    
++    _children = [[NSMutableArray alloc] init];
++    
++    return self;
++}
++
++- (void)dealloc
++{
++    [_children release];
++    [super dealloc];
++}
++
++- (void)setName:(NSString *)name;
++{
++    [_name autorelease];
++    _name = [name retain];
++}
++
++- (NSString *)name;
++{
++    return _name;
++}
++
++- (void)setAge:(int)age;
++{
++    _age = age;
++}
++
++- (int)age;
++{
++    return _age;
++}
++
++- (void)addChild:(NSString *)child;
++{
++    [[self mutableArrayValueForKey:@"children"] addObject:child];
++    // This would fail:
++    // [_children addObject:child];
++}
++
++@end
++
++
++@implementation OCMockKeyValueObserverTests
++
++- (void)testObserveObjectKeyPath
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionNew];
++
++    [observer expectKeyPath:@"name" object:person];
++        
++    [person setName:@"Jane"];
++    [person setAge:25];
++    
++    [observer verify];
++}
++
++- (void)testReceiveUnexpected
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionNew];
++
++    [observer expectKeyPath:@"name" object:person];
++    
++    [person setName:@"Jane"];
++    [person setAge:25];
++    
++    STAssertThrows([person setName:@"Jim"], nil);
++}
++
++- (void)testObserveSpecificNewValue
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionNew];
++
++    [observer expectKeyPath:@"name" object:person newValue:@"Jane"];
++    
++    [person setName:@"Jane"];
++    [person setAge:25];
++    
++    [observer verify];
++}
++
++- (void)testObserveWrongNewValue
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionNew];
++
++    [observer expectKeyPath:@"name" object:person newValue:@"Jane"];
++    
++    STAssertThrows([person setName:@"Jim"], nil);
++}
++
++- (void)testObserveSpecificOldValue
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionOld];
++
++    [observer expectKeyPath:@"name" object:person oldValue:@"Joe"];
++    
++    [person setName:@"Jane"];
++    [person setAge:25];
++    
++    [observer verify];
++}
++
++- (void)testObserveWrongOldValue
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person options:NSKeyValueObservingOptionOld];
++    
++    [observer expectKeyPath:@"name" object:person oldValue:@"Jane"];
++    
++    STAssertThrows([person setName:@"Jim"], nil);
++}
++
++- (void)testObserveSpecificIndexesValue
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"children" object:person options:NSKeyValueObservingOptionNew];
++
++    [observer expectKeyPath:@"children" object:person];
++    
++    [person addChild:@"Jim"];
++    
++    [observer verify];
++}
++
++- (void)testObserveMultipleIndexes
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"children" object:person];
++    
++    [observer expectKeyPath:@"children" object:person indexes:[NSIndexSet indexSetWithIndex:0]];
++    [observer expectKeyPath:@"children" object:person indexes:[NSIndexSet indexSetWithIndex:1]];
++    
++    [person addChild:@"Jim"];
++    [person addChild:@"Jack"];
++    
++    [observer verify];
++}
++
++- (void)testObserveMultipleKeyPaths
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person];
++    [observer registerKeyPath:@"age" object:person];
++    
++    [observer expectKeyPath:@"name" object:person];
++    [observer expectKeyPath:@"age" object:person];
++
++    [person setName:@"Jim"];
++    [person setAge:25];
++    
++    [observer verify];
++}
++
++- (void)testObserveMultipleKeyPathsIncorrectOrder
++{
++    OCMockKeyValueObserver * observer = [[[OCMockKeyValueObserver alloc] init] autorelease];
++    TestOCMockPerson * person = [[[TestOCMockPerson alloc] init] autorelease];
++    
++    [person setName:@"Joe"];
++    [person setAge:30];
++    [observer registerKeyPath:@"name" object:person];
++    [observer registerKeyPath:@"age" object:person];
++    
++    [observer expectKeyPath:@"age" object:person];
++    [observer expectKeyPath:@"name" object:person];
++    
++    STAssertThrows([person setName:@"Jim"], nil);
++}
++
++@end

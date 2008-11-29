@@ -1,0 +1,19 @@
+diff --git a/.hgignore b/.hgignore
+new file mode 100644
+--- /dev/null
++++ b/.hgignore
+@@ -0,0 +1,14 @@
++syntax: regexp
++
++\.xcodeproj/.*\.mode1$
++\.xcodeproj/.*\.mode1v3$
++\.xcodeproj/.*\.pbxuser$
++
++syntax: glob
++
++build
++scratch
++.DS_Store
++*.~.nib
++*~
++.svn
